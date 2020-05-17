@@ -1,5 +1,6 @@
 Ravan Sadigli
 Name of the pl: Plang
+I changed all files from the old lex repo including Plang.l
 
 BNF grammar
 <program> -> START <statements> END 
