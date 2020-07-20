@@ -1,6 +1,0 @@
-START ##test4
-Int condition(){
-Boolean a=false
-Boolean b=true
-If(a||b){ Return true} Else { return false}
-END
