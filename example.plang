@@ -3,7 +3,6 @@ import *;
 public class plang{
     public static void main() throw Exception{
     String str="hello world to *Plang*";
-    System.print();
     int a = 5;
     /*comment1*/
     #comment2
@@ -25,7 +24,6 @@ public class plang{
     int d=5;
    }
     loopa();
-    System.print();  
   }
    func loopa (){
    int q=5;
