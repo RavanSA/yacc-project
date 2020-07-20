@@ -1,8 +1,0 @@
-START ##test1
-Int a=0
-Int b=12
-Float c=45.78
-Int k=5
-Float j=a*b+c/k+c*b +k*b
-END
-
