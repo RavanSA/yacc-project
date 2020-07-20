@@ -1,0 +1,44 @@
+package app;
+import *;
+public class plang{
+    public static void main() throw Exception{
+    String str="hello world to *Plang*";
+    System.print();
+    int a = 5;
+    /*comment1*/
+    #comment2
+    float b=5.2;
+    int d= 16/4;
+    int k =5;
+    int c=2+9;
+    int f= 5+c;
+    int i =0;
+    int j =5+i;
+    if(d==2){
+	if(d>=4){
+	d=10;	
+    }else{
+	d=4;
+   }
+   }else{
+    d=8;
+    int d=5;
+   }
+    loopa();
+    System.print();  
+  }
+   func loopa (){
+   int q=5;
+   int r=1;
+   int n=q;
+   r--; #r=0
+   boolean a=false;
+   boolean b=true;
+   System.print();
+   for(i=5;i<10;){
+   r=4;
+   loopEnd();
+   }
+  }
+ }
+
