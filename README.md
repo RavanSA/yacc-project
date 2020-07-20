@@ -1,97 +1,73 @@
-Ravan Sadigli
-Name of the pl: Plang
-I changed all files from the old lex repo including Plang.l
+•	Project Group Members - Ravan Sadigli(20160807005)
+•	Name of the programming language : “Plang”
+•	Grammar in BNF form :
+<program> ::= <statements>
+<statements> ::=<packstmt>  <importstmt>  <blockstmts>
+<class> ::=identifier
+<blockstmts> ::= <class> <mainmthd> <exception> <method>
+<methodname>::=identifier
+<mainmthd> ::= <exception> <body>
+<method> ::=<methodname> <body>
+<body> ::=  <statement>
+<stmts> ::= <stmts> <stmt>
+<stmt>::=<nonblockstmt>|<blockstmt>|<method_name>
+<nonblock >::=<variabledec>|<expr>| <singlestmt>
+<singlestmt> ::= <printstmt>|<scanstmt>|<endstmt>
+<blockstmt> ::= <if> | <for>| <try>
+<variabledec> ::= <datatype> | <texttype>
+<texttype>:: = <String> <typestrinf>| <char> <typechar>
+<datatype>::= <integer> < typeint>|<float> <typefloat>| <boolean> <typeboolean>
+<typeboolean>::=identifier | identifier =  <relationexp>
+<typestring>::= identifier = string
+<typechar>::= identifier = char
+<typeint>::= identifier =  <arithm>| identifier = <relational>
+<typefloat>::= identifer = <arithm >|identifier , identifier
+<expr>::=<arithm ><|relationexp>
+<if> ::= if <booleanop> <body>
+<elseif> ::= else <ifelse>
+<ifelse> ::= if <booleanop> <body>| <body>
+<for> ::= for ( <loopargument> ) <bodyloop>
+<bodyloop> ::= ( <loop> ) 
+<loop> ::= <stmts> <loopstmt>
+<loopstmt> ::= loopend ( ) ;
+<loopargument> ::=  <loopargument1> ; <loopargument2> ; <loopargument3>
+<loopargument1> ::= <variabledec> | <expr> 
+<loopargument2> ::= <relationexp>
+<loopargument3> :: = <arithm>
+<try> ::= try (<try2>)
+<try2> ::= catch ( <catch2> ) 
+<exception>::=throw exception
+<packstmt> ::= package identifier ;
+<importstmt> ::= import identifier . *;| import identifier.*
+<printstmt> ::= printing ();
+<scanstmt> ::= scanner ();
+<endstmt> ::= exit_success;
+<comment>::= // | /*--------*/
+<integer> ::=  <int>  <sign>  <int> | <int>  <relationsign >  <int> | <digit>
+<float> ::= <float> <sign> <float> | <float>  <relationsign>  <flot> | <int>.<digit>
+ <boolean> ::= true | false 
+<String>::=<letter> | <digit> | <symbol>
+<char> ::=<charachter>
+ <charachter> ::= <letter> | <digit> 
+ <booleanop>::=<expr>  and  <expr> | <expr> or <expr> 
+ <relationsign> ::= ++ |-- |< | <= | > | >= | != | ==
+<sign>::= + | - | * | / | =
+ <digit> ::=0 | 1 |....| 9 
+   
+  
+•	Explaining to the syntax of the language
+Plang is designed as a simple programming language. The syntax of the language looks like java. The beginning of Pl begins with the package and import. Then, we need to set the name of the class, which starts with the public class or class as in java, and it followed by the main method. 
+There are four primitive types in the Plang. These are int, String, float, and boolean. Its purposes are described below:
+1.	int – it stores integer
+2.	String – it holds sequence of element
+3.	float - it holds decimal numbers
+4.	boolean – it stores only two possible values, true or false. 
+Also, conditional statements are available in this programming language. The syntax is the same as in Java (basic if and if-else statements).
+There are func keywords used for the defining method. Methods are defined outside the main method, and we can call the method inside the smain method. And, we can use the loop using the for keyword. To end the loop, we need to use the endloop keyword.
+Comments are also similar to java. And, the data in the comments are ignored by the compiler.
+1.	For one line, we need to use // 
+2.	For multi line, we need to /*....*/
+It also has methods like scan and printing. And, we can stop the execution using the exit keyword. And, the example of the plang can be found in the file called example.plang.
 
-BNF grammar
-<program> -> START <statements> END 
-<statements -> <statement> 
-| <statement><statements> 
-<statement> -> <if_statement> 
-| <loop> 
-|<function_decleration> 
-|<function_call> 
-|<decleration> 
-|<expression> 
-|<input_statement> 
-|<output_statement> 
-<if_statement> -> IF (<expression>) {<statements>} 
-| IF (<expression>) <body> ELSE <body> 
-<body> -> {<statements>} 
-<loop> -> <for> 
-|<while> 
-<while> -> WHILE (< expression>) <body> 
-<for> -> FOR (<assignment>; <expression>; <expression>) <body> 
-<function_decleration> -> <datatype> <identifier>(<variable_list_decleration>) {<statements> RETURN <assignment_valid>} 
-<function_call> -> <indentifier> (<paramater_list>) 
-<decleration> -> <variable_decleration> 
-|<array_decleration> 
-<variable_list_decleration> -> <variable_decleration> 
-|<variable_list_decleration> ; <variable_decleration> 
-<variable_decleration> -> <datatpye> <parameter_list> 
-<array_decleration> -> <datatype> [ ] <identifier> 
-<identifier> -> <lowercase> 
-|<lowercase><valids> 
-<valids> -> <valid> 
-|<valid><valids> 
-<valid> -> <lowercase> 
-|<uppercase> 
-|<digit> 
-<datatype> -> Int 
-| Float 
-| Boolean 
-<parameter_list> -> <parameter> 
-| <parameter> , <parameter_list> 
-<parameter> -> <identifier> 
-<assignment> -> <variable> = <assignment_valid> 
-|<datatype> <variable> = <assignment_valid> 
-|<variable>++ 
-|<variable>-- 
-<assignment_valid> -> <variable> 
-|<expression> 
-<variable> -> <identifier> 
-|<array> 
-|<function_call> 
-|<input_statement> 
-<array> -> <identifier> [<integer>] 
-<expression> -> <arithmetic_ex> 
-|<logical_ex> 
-<arithmetic_ex> -> <arithmetic_valid> 
-|<arithmetic_ex> <arithmetic_op> <arithmetic_valid> 
-<arithmetic_valid> -> <integer> 
-|<float> 
-|<digit> 
-<arithmetic_op>: -> + 
-|- 
-|* 
-|/ |% 
-<logical_ex> -> <boolean> 
-| <variable> <logical_op> <variable> 
-| <variable> <logical_op> <expression> 
-<logical_op> -> < or_op> 
-|<and_op> 
-|<xor_op> 
-|<if_then_op> 
-|<equal_op> 
-|< lessthan_op> 
-|<greaterthan_op> 
-|<not_op> 
-<input_statement> -> Input ( ) 
-<output_statement> -> Output ( ) 
-<digit> -> 0|1|2|3|4|5|6|7|8|9 
-<uppercase> -> A | B | C | D | E|F|G|H|I|J|K|L|M|N|O| P|Q|R|S|T|U|V|W|X|Y|Z <lowercase> -> a| b | c | d | e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z 
-<boolean> -> true|false 
-<integer> -> <digit> 
-| <digit> <integer> 
-<floating> -> <integer> . <integer> 
-<or_op> -> || 
-<and_op> -> && 
-<xor_op> -> x| 
-<if_then_op> -> => 
-<equal_op> -> == 
-<lessthan_op> -> << 
-<greaterthan_op> -> >> 
-<not_op> -> ! 
-<sign> -> - | + 
-<increment_op> -> ++ 
-<decrement_op> -> -- 
-<comment> -> / * <statements> * /
+
+
