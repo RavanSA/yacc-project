@@ -6,10 +6,10 @@ planglex:start.l
 	lex plang.l
 
 run:y.tab.c
-	gcc y.tab.c -o example -ll -ly
+	gcc y.tab.c -o ex -ll -ly
 
 texteditor:
-	./example < example.plang
+	./ex < example.plang
 
 clean:
 	rm start.l
