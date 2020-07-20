@@ -1,9 +1,0 @@
-START ##test2
-Int loop(){
-Int i=0
-Int j=4
-While( j >> i){
-Return 5;
-}
-}
-END
