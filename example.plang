@@ -5,7 +5,7 @@ public class plang{
     String str="hello world to *Plang*";
     int a = 5;
     /*comment1*/
-    #comment2
+    //comment2
     float b=5.2;
     int d= 16/4;
     int k =5;
