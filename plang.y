@@ -42,7 +42,7 @@ statements: packstmt importstmt blockstmts
             ;
 class: IDENTIFIER
            ;
-blockstmts: PUBLIC CLASS class LBRACE mainmthd method RBRACE //example-public class name{ psvm throw Exception
+blockstmts: PUBLIC CLASS class LBRACE mainmthd method RBRACE 
           ;
 methodname:IDENTIFIER
           ;
