@@ -1,8 +1,0 @@
-START ##test
-Int loop(){
-For( Int i = 40; i << position; i++ ){
-Return 1
-}
-Return 1
-}
-END
