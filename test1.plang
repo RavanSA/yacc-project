@@ -1,8 +1,0 @@
-START ## test1
-Int test(Int x){
-Int y=5
-Int z=9
-x=y+z
-Return x
-}
-END
